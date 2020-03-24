@@ -321,6 +321,7 @@ function checkShaderError (gl, shader, source, type, command) {
             push(leftPad('^^^', offset + 3) + endl, 'font-weight:bold')
             push(leftPad('| ', 6))
             push(message + endl, 'font-weight:bold')
+            window.shader_error_hook(line.number, offset,  message, tokenPat||"");
           })
           push(leftPad('| ', 6) + endl)
         } else {
