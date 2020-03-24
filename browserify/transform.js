@@ -29,9 +29,10 @@ ReplaceREGL.prototype._flush = function (cb) {
 
 module.exports = function (file, options) {
   var nfile = path.normalize(file)
-  if ((options._flags && options._flags.debug) ||
-    (nfile !== REGL_PATH && nfile !== REGL_MAIN_PATH)) {
+  // console.log("AAA", file)
+  // if ((options._flags && options._flags.debug) ||
+    // (nfile !== REGL_PATH && nfile !== REGL_MAIN_PATH)) {
     return new PassThrough()
-  }
-  return new ReplaceREGL()
+  // }
+  // return new ReplaceREGL()
 }
