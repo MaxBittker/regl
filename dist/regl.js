@@ -276,6 +276,7 @@ function checkShaderError (gl, shader, source, type, command) {
     checkCommandType(source, 'string', typeName + ' shader source must be a string', command)
     var files = parseSource(source, command)
     var errors = parseErrorLog(errLog)
+    let stringJoined = ""
     annotateFiles(files, errors)
 
     Object.keys(files).forEach(function (fileNumber) {
@@ -333,10 +334,12 @@ function checkShaderError (gl, shader, source, type, command) {
         console.log.apply(console, styles)
       } else {
         console.log(strings.join(''))
+        stringJoined += strings.join('');
+        
       }
     })
 
-    check.raise('Error compiling ' + typeName + ' shader: '  +"\n"+ strings.join(''))
+    check.raise('Error compiling ' + typeName + ' shader: '  +"\n" + stringsJoined)
   }
 }
 
