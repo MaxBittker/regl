@@ -276,7 +276,6 @@ function checkShaderError (gl, shader, source, type, command) {
     checkCommandType(source, 'string', typeName + ' shader source must be a string', command)
     var files = parseSource(source, command)
     var errors = parseErrorLog(errLog)
-    let messageExtra = ""
     annotateFiles(files, errors)
 
     Object.keys(files).forEach(function (fileNumber) {
@@ -322,9 +321,6 @@ function checkShaderError (gl, shader, source, type, command) {
             push(leftPad('^^^', offset + 3) + endl, 'font-weight:bold')
             push(leftPad('| ', 6))
             push(message + endl, 'font-weight:bold')
-            // debugger;
-            // window.shader_error_hook(line.number, offset,  message, tokenPat||"");
-            messageExtra += "line: " + line.number + " offset: " + offset + " message: " + message + " token: " + tokenPat + "\n";
           })
           push(leftPad('| ', 6) + endl)
         } else {
@@ -340,7 +336,7 @@ function checkShaderError (gl, shader, source, type, command) {
       }
     })
 
-    check.raise('Error compiling ' + typeName + ' shader, ' + files[0].name +" "+ messageExtra)
+    check.raise('Error compiling ' + typeName + ' shader: '  +"\n"+ strings.join(''))
   }
 }
 
