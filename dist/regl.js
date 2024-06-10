@@ -294,7 +294,7 @@
           styles.push(style || '')
         }
 
-        push('file number ' + fileNumber + ': ' + file.name + '\n', 'color:red;text-decoration:underline;font-weight:bold')
+        // push('file number ' + fileNumber + ': ' + file.name + '\n', 'color:red;text-decoration:underline;font-weight:bold')
 
         file.lines.forEach(function (line) {
           if (line.errors.length > 0) {
