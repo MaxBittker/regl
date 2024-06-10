@@ -339,7 +339,7 @@ function checkShaderError (gl, shader, source, type, command) {
       }
     })
 
-    check.raise('Error compiling ' + typeName + ' shader: '  +"\n" + stringsJoined)
+    check.raise('Error compiling ' + typeName + ' shader: '  +"\n" + stringJoined)
   }
 }
 
