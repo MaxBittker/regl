@@ -329,13 +329,12 @@ function checkShaderError (gl, shader, source, type, command) {
           push(line.line + endl, 'color:red')
         }
       })
+      console.log.apply(console, styles)
+
       if (typeof document !== 'undefined' && !window.chrome) {
         styles[0] = strings.join('%c')
-        console.log.apply(console, styles)
       } else {
         console.log(strings.join(''))
-        stringJoined += strings.join('');
-        
       }
     })
 
